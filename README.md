@@ -1,7 +1,7 @@
 ## Team 2
 - Laura
 - Simana
--
+- Alex
 -
 
 
