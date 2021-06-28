@@ -67,6 +67,18 @@ namespace BapApi.Controllers
 
         // Delete: api/StoreApps/1
         // Delete a single row from the database by Id
+        [HttpDelete("{id}")]    // This is setting the request type 
+        public async Task<IActionResult> DeleteStoreApps(int id) {
+            var storeappitem = await _context.StoreApps.FindAsync(id);
+            if (storeappitem == null) {
+                return NotFound();
+            }
+
+            _context.StoreApps.Remove(storeappitem);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
 
         // DTO helper method. "Production apps typically limit the data that's input and returned using a subset of the model"
         private static StoreAppDTO StoreAppToDTO(StoreApp storeApp) =>
