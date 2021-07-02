@@ -120,17 +120,34 @@ namespace BapApi.Controllers
             return NoContent();
         }
 
-        // DTO helper method. "Production apps typically limit the data that's input and returned using a subset of the model"
+        /// <summary>
+        /// [1] Data Transfer Objects(DTO)
+        /// DTOs provide an efficient way of abstracting domain objects from the presentation layer.
+        /// In effect, your layers are correctly separated. If you want to change the presentation 
+        /// layer completely, you can continue with the existing application and domain layers. 
+        /// Alternatively, you can re-write your domain layer, completely change the database schema, 
+        /// entities and O/RM framework, all without changing the presentation layer. This, of course, 
+        /// is as long as the contracts (method signatures and DTOs) of your application services remain unchanged.
+        /// 
+        /// When using DTO in Serialization & Lazy Load Problems you return data(an object) to the presentation layer, 
+        /// it's most likely serialized. For example, in a REST API that returns JSON, your object will be serialized
+        /// to JSON and sent to the client. Returning an Entity to the presentation layer can be problematic in that regard, 
+        /// especially if you are using a relational database and an ORM provider like Entity Framework Core. 
+        /// https://docs.abp.io/en/abp/latest/Data-Transfer-Objects#:~:text=%20Data%20Transfer%20Objects%20%201%20Introduction.%20Data,best%20practices%20%26%20suggestions%20that%20you...%20More%20
+        /// 
+        /// </summary>
+        /// <param name="storeApp"></param>
+        /// <returns></returns>
         private static StoreAppDTO StoreAppToDTO(StoreApp storeApp) =>
             new StoreAppDTO
             {
-                Id = storeApp.Id,
-                Name = storeApp.Name,
-                Rating = storeApp.Rating,
-                People = storeApp.People,
-                Category = storeApp.Category,
-                Date = storeApp.Date,
-                Price = storeApp.Price
+                Id       =  storeApp.Id,
+                Name     =  storeApp.Name,
+                Rating   =  storeApp.Rating,
+                People   =  storeApp.People,
+                Category =  storeApp.Category,
+                Date     =  storeApp.Date,
+                Price    =  storeApp.Price
             };
     }
 
