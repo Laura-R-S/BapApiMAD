@@ -31,8 +31,27 @@ namespace BapApi.Controllers
             return await _context.StoreApps.Select(x => StoreAppToDTO(x)).ToListAsync();
         }
 
-        // GET: api/StoreApps/1
-        // Get a single row from the database by Id
+        /// <summary> 
+        /// DATE: 02/07/2021 
+        /// Async/await
+        /// 
+        /// 
+        /// The async modifier is used to specify that a method, lambda expression, or anonymous method 
+        /// is asynchronous. If you use this modifier on a method or expression, it's referred to as 
+        /// an async method. For more information please look at the following links.
+        /// 
+        /// The async/await pattern is a syntactic feature of many programming
+        /// languages that allows an asynchronous, non-blocking function to be structured in a way 
+        /// similar to an ordinary synchronous function. It is semantically related to the concept of a
+        /// coroutine and is often implemented using similar techniques, and is primarily intended to 
+        /// provide opportunities for the program to execute other code while waiting for a long-running, 
+        /// asynchronous task to complete, usually represented by promises or similar data structures.
+        /// 
+        /// https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/async
+        /// https://en.wikipedia.org/wiki/Async/await#:~:text=In%20computer%20programming%2C%20the%20async%2Fawait%20pattern%20is%20a,a%20way%20similar%20to%20an%20ordinary%20synchronous%20function.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<StoreAppDTO>> GetStoreApp(int id)
         {
