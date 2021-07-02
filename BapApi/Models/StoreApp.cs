@@ -11,7 +11,15 @@ namespace BapApi.Models
        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
        [Required(ErrorMessage = "ID is required")] 
        public int      Id        { get; set; }
+
+
+       [Column("name")]
+       [Display(Name = "Name")]
+       [StringLength(100, MinimumLength = 3)]
+       [Required(ErrorMessage = "Name must be between 3 and 100 characters")]
        public string   Name      { get; set; }
+
+
        public double   Rating    { get; set; }
        public int      People    { get; set; }
        public string   Category  { get; set; }
