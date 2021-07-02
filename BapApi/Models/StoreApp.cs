@@ -1,14 +1,22 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace BapApi.Models
 {
     public class StoreApp
     {
-       public int Id { get; set; }
-       public string Name { get; set; }
-       public double Rating{ get; set; }
-       public int People{ get; set; }
-       public string Category{ get; set; }
-       public string Date{ get; set; }
-       public string Price{ get; set; }
+       [Column("id")]
+       [Display(Name = "ID")]
+       [Key]
+       [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+       [Required(ErrorMessage = "ID is required")] 
+       public int      Id        { get; set; }
+       public string   Name      { get; set; }
+       public double   Rating    { get; set; }
+       public int      People    { get; set; }
+       public string   Category  { get; set; }
+       public string   Date      { get; set; }
+       public string   Price     { get; set; }
     }
 
     /// <summary>
