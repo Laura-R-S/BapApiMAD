@@ -36,17 +36,21 @@ namespace BapApi.Models
        [Column("category")]
        [Display(Name = "Category")]
        [Required(ErrorMessage = "Category is required")]
-       public string   Category  { get; set; }
+       public string Category { get; set; }
 
 
 
        [Column("date")]
        [Display(Name = "Date")]
        [Required(ErrorMessage = "Date is required")]
-       public string   Date      { get; set; }
+       public string Date { get; set; }
 
 
-       public string   Price     { get; set; }
+       [Column("price")]
+       [Display(Name = "Price")]
+       [RegularExpression("^[0-9]*$")]
+       [Required(ErrorMessage = "Price should be a number")]
+        public string Price  { get; set; }
     }
 
     /// <summary>
