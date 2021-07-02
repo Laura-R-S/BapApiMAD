@@ -33,9 +33,9 @@ namespace BapApi.Controllers
 
         /// <summary> 
         /// DATE: 02/07/2021 
-        /// Async/await
         /// 
         /// 
+        /// [1] Async/await
         /// The async modifier is used to specify that a method, lambda expression, or anonymous method 
         /// is asynchronous. If you use this modifier on a method or expression, it's referred to as 
         /// an async method. For more information please look at the following links.
@@ -46,9 +46,30 @@ namespace BapApi.Controllers
         /// coroutine and is often implemented using similar techniques, and is primarily intended to 
         /// provide opportunities for the program to execute other code while waiting for a long-running, 
         /// asynchronous task to complete, usually represented by promises or similar data structures.
-        /// 
         /// https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/async
         /// https://en.wikipedia.org/wiki/Async/await#:~:text=In%20computer%20programming%2C%20the%20async%2Fawait%20pattern%20is%20a,a%20way%20similar%20to%20an%20ordinary%20synchronous%20function.
+        /// 
+        /// [2] FindAsync(id)
+        /// The FindAsync(id) is an entity with the given primary key values. If an entity with the given primary key 
+        /// values is being tracked by the context, then it is returned immediately without making a request
+        /// to the database. Otherwise, a query is made to the database for an entity with the given primary 
+        /// key values and this entity, if found, is attached to the context and returned. If no entity is
+        /// found, then null is returned. For more infromation please follow the link.
+        /// https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.dbcontext.findasync?view=efcore-5.0
+        /// 
+        /// [3] return NotFound()
+        /// With API actions, failure to display a friendly error page is unacceptable in a professional application. 
+        /// With an API, while not ideal, empty response bodies are far more permissible for many invalid request types. 
+        /// Simply returning a 404 status code (with no response body) for an API route that does not exist may provide
+        /// the client with enough information to fix their code.
+        /// Depending on your requirements, this may be acceptable for many common status codes but it will rarely 
+        /// be sufficient for validation failures. If a client passes you invalid data, returning a 400 Bad Request 
+        /// is not going to be helpful enough for the client to diagnose the problem. At a minimum, we need to let 
+        /// them know which fields are incorrect and ideally, we would return an informative message for each failure.
+        /// With ASP.NET Web API.
+        /// https://www.devtrends.co.uk/blog/handling-errors-in-asp.net-core-web-api
+        /// 
+        /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
