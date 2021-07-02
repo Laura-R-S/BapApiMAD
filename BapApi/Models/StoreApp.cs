@@ -20,7 +20,13 @@ namespace BapApi.Models
        public string   Name      { get; set; }
 
 
+       [Column("rating")]
+       [Display(Name = "Rating")]
+       [StringLength(5)]
+       [RegularExpression("^[0-9]*$")]
        public double   Rating    { get; set; }
+
+
        public int      People    { get; set; }
        public string   Category  { get; set; }
        public string   Date      { get; set; }
