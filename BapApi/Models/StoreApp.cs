@@ -10,30 +10,35 @@ namespace BapApi.Models
        [Key]
        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
        [Required(ErrorMessage = "ID is required")] 
-       public int      Id        { get; set; }
+       public int Id { get; set; }
 
 
        [Column("name")]
        [Display(Name = "Name")]
        [StringLength(100, MinimumLength = 3)]
        [Required(ErrorMessage = "Name must be between 3 and 100 characters")]
-       public string   Name      { get; set; }
+       public string Name { get; set; }
 
 
        [Column("rating")]
        [Display(Name = "Rating")]
        [StringLength(5)]
        [RegularExpression("^[0-9]*$")]
-       public double   Rating    { get; set; }
+       public double Rating { get; set; }
 
 
        [Column("people")]
-       [Display(Name = "Number of People Downloaded")]
+       [Display(Name = "Number of People Rated")]
        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-       public int      People    { get; set; }
+       public int People { get; set; }
 
 
+       [Column("category")]
+       [Display(Name = "Category")]
+       [Required(ErrorMessage = "Category is required")]
        public string   Category  { get; set; }
+
+
        public string   Date      { get; set; }
        public string   Price     { get; set; }
     }
