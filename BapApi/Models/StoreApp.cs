@@ -3,6 +3,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BapApi.Models
 {
+
+    /// <summary>
+    /// DATE: 02/07/2021
+    /// 
+    /// [1] Database Generated
+    /// The DatabaseGenerated attribute added to the properties 
+    /// whose value is automatically computed/updated by the Database.
+    /// It specifies how the database generates values for the property. 
+    /// There are three possible values: Identity: Specifies that the column 
+    /// is an identity column, which is typically used for integer primary keys.
+    /// Computed: Specifies that the database generates the value for the column.
+    /// 
+    /// The advantages of auto incremented primary keys are numerous,
+    /// but the most impactful benefits are faster speed when performing queries and 
+    /// data-independence when searching through thousands of records which might 
+    /// contain frequently altered data elsewhere in the table. With a consistent 
+    /// and unique numeric identifier, applications can take advantage of these faster
+    /// and more reliable queries.
+    /// https://entityframework.net/database-generated#:~:text=Identity.%20When%20DatabaseGenerated.Identity%20applied%20to%20a%20property%2C%20the,by%20the%20database%20when%20the%20row%20is%20inserted.
+    /// https://chartio.com/resources/tutorials/how-to-define-an-auto-increment-primary-key-in-sql-server/
+    /// 
+    /// </summary>
     public class StoreApp
     {
        [Column("id")]
