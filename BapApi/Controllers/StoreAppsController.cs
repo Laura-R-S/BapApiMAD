@@ -123,27 +123,29 @@ namespace BapApi.Controllers
         /// 
         /// Async/Await Pattern
         /// [3] The Async/Await pattern is a syntactic feature of many programming languages that allows an asynchronous,
-        /// non-blocking function to be structured in a way similar to an ordinary synchronous function. It is semantically related to the concept
-        /// of a coroutine and is often implemented using similar techniques, and is primarily intended to provide opportunities for the program to
-        /// execute other code while waiting for a long-running, asynchronous task to complete, usually represented by promises or similar data 
-        /// structures. 
+        /// non-blocking function to be structured in a way similar to an ordinary synchronous function. It is semantically
+        /// related to the concept of a coroutine and is often implemented using similar techniques, and is primarily intended
+        /// to provide opportunities for the program to execute other code while waiting for a long-running, asynchronous task
+        /// to complete, usually represented by promises or similar data structures. 
         /// 
-        /// Asynchrony, in computer programming, refers to the occurrence of events independent of the main program flow and ways to deal with such
-        /// events.hese may be outside events such as the arrival of signals, or actions instigated by a program that take place concurrently with
-        /// program execution, without the program blocking to wait for results. Asynchronous input or output is an example of the latter cause of 
-        /// asynchrony, and lets programs issue. Commands to storage or network devices that service these requests while the processor continues 
-        /// executing the program, doing so provides a degree of parallelism.
+        /// Asynchrony, in computer programming, refers to the occurrence of events independent of the main program flow and 
+        /// ways to deal with such events.hese may be outside events such as the arrival of signals, or actions instigated by
+        /// a program that take place concurrently with program execution, without the program blocking to wait for results. 
+        /// Asynchronous input or output is an example of the latter cause of asynchrony, and lets programs issue. Commands 
+        /// to storage or network devices that service these requests while the processor continues executing the program, 
+        /// doing so provides a degree of parallelism.
         /// https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)
         /// 
         /// IEnumerable
-        /// [4] IEnumerable in C# is an interface that defines one method, GetEnumerator which returns an IEnumerator interface. This allows readonly
-        /// access to a collection, then a collection that implements IEnumerable can be used with a for-each statement.
+        /// [4] IEnumerable in C# is an interface that defines one method, GetEnumerator which returns an IEnumerator interface.
+        /// This allows readonly access to a collection, then a collection that implements IEnumerable can be used with a for-each statement.
+        /// 
         /// key points 
         /// a. IEnumerable interface contains the System.Collections.Generic namespace
         /// b. IEnumerable interface is a generic interface which allows looping over generic or non-generic lists
         /// c. IEnumerable interface also works with linq query expression
         /// d. IEnumerable interface Returns an enumerator that iterates through the collection
-        https://www.c-sharpcorner.com/UploadFile/0c1bb2/ienumerable-interface-in-C-Sharp/
+        /// https://www.c-sharpcorner.com/UploadFile/0c1bb2/ienumerable-interface-in-C-Sharp/
         /// 
         /// </summary>
         /// <returns></returns>
