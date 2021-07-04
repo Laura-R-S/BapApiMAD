@@ -105,19 +105,32 @@ namespace BapApi.Controllers
         // POST: api/StoreApps
         // Add a new record to the database
 
-        // Delete: api/StoreApps/1
-        // Delete a single row from the database by Id
-        [HttpDelete("{id}")]    // This is setting the request type 
+
+
+
+
+        // Delete: api/StoreApps/1 (Delete a single row from the database by Id)
+
+        // [HttpDelete] is listening for the request content type - delete. 
+        [HttpDelete("{id}")]
+
+        // method to delete app form database. A dynamic property (id) is passed into the DeleteStoreApps method and cast to an int 
         public async Task<IActionResult> DeleteStoreApps(int id) {
-            var storeappitem = await _context.StoreApps.FindAsync(id);
-            if (storeappitem == null) {
-                return NotFound();
+            // await _context checks item is in database and FindAsync method returns id or null 
+            var storeappitem = await _context.StoreApps.FindAsync(id); 
+            // conditional statement to determine item was found in database 
+            if (storeappitem == null) { 
+                // if not found, return NotFound response (Status 404 NotFound)
+                return NotFound(); 
             }
 
-            _context.StoreApps.Remove(storeappitem);
-            await _context.SaveChangesAsync();
+            // storesppitem is passed into the remove method and the method performs the action to remove it from the database context 
+            _context.StoreApps.Remove(storeappitem); 
+            // changes are applied by using SaveChangesAsync()
+            await _context.SaveChangesAsync(); 
 
-            return NoContent();
+            // NoContent() sends a no reponse object to the frontend as we are not returning any values 
+            return NoContent(); 
         }
 
         /// <summary>
