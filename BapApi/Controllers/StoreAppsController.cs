@@ -205,18 +205,15 @@ namespace BapApi.Controllers
         /// designers strayed away from this original concept in two important ways. First, there is no technical reason for a URI to
         /// textually describe the web resource subordinate to which POST data will be stored.
         /// https://en.wikipedia.org/wiki/POST_(HTTP)
+        /// https://www.youtube.com/watch?v=_6IdfPMxYFI
         /// 
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
 
+        /// Delete: api/StoreApps/1 (Delete a single row from the database by Id)
 
-
-
-
-        // Delete: api/StoreApps/1 (Delete a single row from the database by Id)
-
-        // [HttpDelete] is listening for the request content type - delete. 
+        /// [HttpDelete] is listening for the request content type - delete. 
         [HttpDelete("{id}")]
 
         // method to delete app form database. A dynamic property (id) is passed into the DeleteStoreApps method and cast to an int 
