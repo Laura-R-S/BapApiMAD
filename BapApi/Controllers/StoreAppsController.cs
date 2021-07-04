@@ -147,9 +147,29 @@ namespace BapApi.Controllers
         /// d. IEnumerable interface Returns an enumerator that iterates through the collection
         /// https://www.c-sharpcorner.com/UploadFile/0c1bb2/ienumerable-interface-in-C-Sharp/
         /// 
+        /// 
+        /// 
+        /// Action Result
+        /// [5] Action results are an important part of the ASP.NET MVC controller system, and definitely worth taking a good look at.
+        /// Understanding how they work gives you many more choices in MVC and that will certainly help make your code better.
+        /// ActionResult An ActionResult is a return type of a controller method, also called an action method, and serves as the base 
+        /// class for Result classes. Action methods return models to views, file streams, redirect to other controllers, or whatever is 
+        /// necessary for the task at hand. The controller takes on this responsibility to connect system components, acting as a traffic cop.
+        /// 
+        /// 
+        /// There are many derived ActionResult types you can use to return results that are more specific for a particular view.
+        /// You can quickly access the derived types of the ActionResult during development by hovering over an ActionResult in an
+        /// action result’s method signature then expanding the type tool window, to see what *Results the ASP.NET Framework provides.
+        /// To get a deeper look at what exactly an ActionResult type is and how it works, running the code with a breakpoint set at the
+        /// end of an action result method will get the information we want. Inspecting the image below of the Watch window shows some of 
+        /// the properties that you can tap into that ActionResults return.
+        /// https://rachelappel.com/2013/04/02/asp-net-mvc-actionresults-explained/
+        /// 
         /// </summary>
         /// <returns></returns>
         [HttpGet("FirstTen")]
+
+        
         public async Task<ActionResult<IEnumerable<StoreAppDTO>>> GetStoreTopTen()
         {
 
@@ -163,8 +183,32 @@ namespace BapApi.Controllers
             return storeTopTen; 
         }
 
-        // POST: api/StoreApps
-        // Add a new record to the database
+
+        /// <summary>
+        /// POST: api/StoreApps
+        /// Add a new record to the database
+        /// 
+        /// HTTP POST
+        /// [1] In computing, POST is a request method supported by HTTP used by the World Wide Web. By design, the POST request method
+        /// requests that a web server accepts the data enclosed in the body of the request message, most likely for storing it.
+        /// It is often used when uploading a file or when submitting a completed web form, in contrast, the HTTP GET request method
+        /// retrieves information from the server.As part of a GET request, some data can be passed within the URL's query string, 
+        /// specifying (for example) search terms, date ranges, or other information that defines the query.   
+        /// As part of a POST request, an arbitrary amount of data of any type can be sent to the server in the body of the request message.
+        /// A header field in the POST request usually indicates the message body's Internet media type.
+        /// 
+        /// The world wide Web and HTTP are based on a number of request methods or 'verbs', including POST and GET as well as PUT, DELETE,
+        /// and several others. Web browsers normally use only GET and POST, but RESTful online apps make use of many of the others. POST's
+        /// place in the range of HTTP methods is to send a representation of a new data entity to the server so that it will be stored as
+        /// a new subordinate of the resource identified by the URI.
+        /// POST requests might be expected to represent new customers, each including their name, address, contact details and so on. Early website
+        /// designers strayed away from this original concept in two important ways. First, there is no technical reason for a URI to
+        /// textually describe the web resource subordinate to which POST data will be stored.
+        /// https://en.wikipedia.org/wiki/POST_(HTTP)
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
 
 
