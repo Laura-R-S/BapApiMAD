@@ -86,8 +86,31 @@ namespace BapApi.Controllers
             return StoreAppToDTO(storeApp);
         }
 
-        // GET: api/StoreApps/FirstTen
-        // Get the first ten results from the database aftering ordering the data by Id
+        /// <summary>
+        /// DATE: 04/07/2021
+        /// 
+        /// HttpGet and HttpPost
+        /// [1] HttpGet and HttpPost are both the methods of posting client data or form data to the server
+        /// HTTP is a HyperText Transfer Protocol that is designed to send and receive the data between 
+        /// client and server using web pages, HTTPGET and HTTPPOST attributes encode request parameters
+        /// as key and value pairs in the HTTP request.The HttpGet protocol and the HttpPost protocol
+        /// provide backward compatibility. 
+        ///
+        /// Whenever the POST request for /StoreApps/FirstTen/ is received, the action invoker creates a list
+        /// of all methods of the Controller that match the Search action name. In this case, you would
+        /// end up with a list of two methods. Immediately, the invoker looks at all of the 
+        /// ActionSelectorAttribute instances applied to each method and calls the IsValidForRequest
+        /// method on each. If each attribute returns true, then the method is considered valid for the current action.
+        /// let us consider one case; when you ask the first method if it can handle a POST request,
+        /// it will respond with false because it only handles GET requests.The second method responds
+        /// with true because it can handle the POST request, and it is the one selected to handle the action for post request.
+        /// While doing this action, no method is found that meets these criteria, the invoker will call the HandleUnknownAction
+        /// method on the Controller, supplying the name of the missing action.If more than one action method meeting these
+        /// criteria is found, an InvalidOperationException is thrown.
+        /// 
+        /// https://www.c-sharpcorner.com/blogs/httpget-and-httppost-attributes-in-asp-net-mvc
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("FirstTen")]
         public async Task<ActionResult<IEnumerable<StoreAppDTO>>> GetStoreTopTen()
         {
