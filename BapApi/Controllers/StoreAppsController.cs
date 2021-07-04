@@ -117,9 +117,24 @@ namespace BapApi.Controllers
         /// Development of HTTP was initiated by Tim Berners-Lee at CERN in 1989. Development of early HTTP Requests for Comments(RFCs)
         /// was a coordinated effort by the Internet Engineering Task Force(IETF) and the World Wide Web Consortium(W3C), with work later
         /// moving to the IETF.
-        /// 
         /// https://datatracker.ietf.org/doc/html/rfc2616
         /// https://www.c-sharpcorner.com/blogs/httpget-and-httppost-attributes-in-asp-net-mvc
+        /// 
+        /// 
+        /// Async/Await Pattern
+        /// [3] The Async/Await pattern is a syntactic feature of many programming languages that allows an asynchronous,
+        /// non-blocking function to be structured in a way similar to an ordinary synchronous function. It is semantically related to the concept
+        /// of a coroutine and is often implemented using similar techniques, and is primarily intended to provide opportunities for the program to
+        /// execute other code while waiting for a long-running, asynchronous task to complete, usually represented by promises or similar data 
+        /// structures. 
+        /// 
+        /// Asynchrony, in computer programming, refers to the occurrence of events independent of the main program flow and ways to deal with such
+        /// events.hese may be outside events such as the arrival of signals, or actions instigated by a program that take place concurrently with
+        /// program execution, without the program blocking to wait for results. Asynchronous input or output is an example of the latter cause of asynchrony, and lets
+        /// programs issue. Commands to storage or network devices that service these requests while the processor continues executing the program. Doing so provides
+        /// a degree of parallelism.
+        /// https://en.wikipedia.org/wiki/Asynchrony_(computer_programming)
+        /// 
         /// </summary>
         /// <returns></returns>
         [HttpGet("FirstTen")]
