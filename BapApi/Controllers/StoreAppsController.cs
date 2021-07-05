@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BapApi.Models;
@@ -175,12 +174,11 @@ namespace BapApi.Controllers
 
             var storeTopTen = await _context.StoreApps.Select(x => StoreAppToDTO(x)).Take(10).ToListAsync();
 
-            if (storeTopTen == null)
-            {
+            if (storeTopTen == null) {
                 return NotFound();
             }
-            
-            return storeTopTen; 
+
+            return storeTopTen;
         }
 
 
@@ -211,29 +209,73 @@ namespace BapApi.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
 
-        /// Delete: api/StoreApps/1 (Delete a single row from the database by Id)
-
-        /// [HttpDelete] is listening for the request content type - delete. 
+        // Delete: api/StoreApps/1 (Delete a single row from the database by Id)
+        // [HttpDelete] is listening for the request content type - delete. 
         [HttpDelete("{id}")]
 
         // method to delete app form database. A dynamic property (id) is passed into the DeleteStoreApps method and cast to an int 
         public async Task<IActionResult> DeleteStoreApps(int id) {
             // await _context checks item is in database and FindAsync method returns id or null 
-            var storeappitem = await _context.StoreApps.FindAsync(id); 
+            var storeappitem = await _context.StoreApps.FindAsync(id);
             // conditional statement to determine item was found in database 
-            if (storeappitem == null) { 
+            if (storeappitem == null) {
                 // if not found, return NotFound response (Status 404 NotFound)
-                return NotFound(); 
+                return NotFound();
             }
 
             // storesppitem is passed into the remove method and the method performs the action to remove it from the database context 
-            _context.StoreApps.Remove(storeappitem); 
+            _context.StoreApps.Remove(storeappitem);
             // changes are applied by using SaveChangesAsync()
-            await _context.SaveChangesAsync(); 
+            await _context.SaveChangesAsync();
 
             // NoContent() sends a no reponse object to the frontend as we are not returning any values 
-            return NoContent(); 
+            return NoContent();
         }
+
+
+        // Pagination
+        // GET: api/StoreApps/TwentyFive/1
+        // Get twenty five results for the page provided by the parameter 
+        [HttpGet("TwentyFive/{pageNum}")]  
+
+
+        public async Task<ActionResult<StoreDetail>> GetTwentyFive(int pageNum) {
+
+            // set items per page 
+            var itemsPerPage = 25;
+
+            // offset count to begin from the first desired item (not the last)
+            // page 1 starts at 0, page 2 starts at 25 etc. 
+            var start = (pageNum - 1) * itemsPerPage; 
+
+            // skip a specified number of items in the db (start), and get (take) the amount specified (25)
+            // await the return of this action before continuing 
+            var storeTwentyFive = await _context.StoreApps.Select(x => StoreAppToDTO(x)).Skip(start).Take(itemsPerPage).ToListAsync();
+
+            if (storeTwentyFive == null) {
+
+                return NotFound();
+            }
+
+            // store the total number of apps in database 
+            // await the return of this action before continuing 
+            var totalCount = await _context.StoreApps.CountAsync();
+
+            // calculate the total amount of pages cast to decimal 
+            var totalPages = (decimal)totalCount / 25;
+
+            // instantiate class to return the sequence of apps and the total count 
+            var result = new StoreDetail {
+                AppList = storeTwentyFive,
+                TotalPageCount = Math.Ceiling(totalPages)
+            };
+
+            // return the class
+            return result;
+
+        }
+
+
 
         /// <summary>
         /// [1] Data Transfer Objects(DTO)

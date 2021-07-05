@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -112,6 +113,13 @@ namespace BapApi.Models
         public string  Date      { get; set; }
         public string  Price     { get; set; }
 
+    }
+
+    // created a new class for returning new structure
+    public class StoreDetail {
+
+        public List<StoreAppDTO> AppList { get; set; }
+        public decimal TotalPageCount { get; set; }
     }
 
 }
