@@ -43,36 +43,36 @@ namespace BapApi.Models
        public string Name { get; set; }
 
 
-       [Column("rating")]
-       [Display(Name = "Rating")]
-       [StringLength(5)]
-       [RegularExpression("^[0-9]*$")]
-       public double Rating { get; set; }
+        [Column("rating")]
+        [Display(Name = "Rating")]
+        [StringLength(5)]
+        [RegularExpression("^[0-9]*$")]
+        public double Rating { get; set; }
 
 
-       [Column("people")]
-       [Display(Name = "Number of People Rated")]
-       [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-       public int People { get; set; }
+        [Column("people")]
+        [Display(Name = "Number of People Rated")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int People { get; set; }
 
 
-       [Column("category")]
-       [Display(Name = "Category")]
-       [Required(ErrorMessage = "Category is required")]
-       public string Category { get; set; }
+        [Column("category")]
+        [Display(Name = "Category")]
+        [Required(ErrorMessage = "Category is required")]
+        public string Category { get; set; }
 
 
 
-       [Column("date")]
-       [Display(Name = "Date")]
-       [Required(ErrorMessage = "Date is required")]
-       public string Date { get; set; }
+        [Column("date")]
+        [Display(Name = "Date")]
+        [Required(ErrorMessage = "Date is required")]
+        public string Date { get; set; }
 
 
-       [Column("price")]
-       [Display(Name = "Price")]
-       [RegularExpression("^[0-9]*$")]
-       [Required(ErrorMessage = "Price should be a number")]
+        [Column("price")]
+        [Display(Name = "Price")]
+        [RegularExpression("^[0-9]*$")]
+        [Required(ErrorMessage = "Price should be a number")]
         public string Price  { get; set; }
     }
 
