@@ -29,7 +29,7 @@ namespace BapApi.Controllers
         {
             return await _context.StoreApps.Select(x => StoreAppToDTO(x)).ToListAsync();
         }
-        [HttpGet]
+       
         
 
 
