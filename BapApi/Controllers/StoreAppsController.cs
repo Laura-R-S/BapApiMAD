@@ -29,6 +29,10 @@ namespace BapApi.Controllers
         {
             return await _context.StoreApps.Select(x => StoreAppToDTO(x)).ToListAsync();
         }
+        [HttpGet]
+        
+
+
 
         /// <summary> 
         /// DATE: 02/07/2021 
@@ -306,6 +310,54 @@ namespace BapApi.Controllers
                 Date     =  storeApp.Date,
                 Price    =  storeApp.Price
             };
+        [HttpGet("Sort/dsc")]
+        public async Task<ActionResult<IEnumerable<StoreApp>>> GetStoreSortDSC(string column)
+        {
+            var storeTopTenApps = new List<StoreApp>(); 
+
+            if (column == "rating")
+        {
+            storeTopTenApps = await _context.StoreApps.OrderByDescending(x => x.Rating).ToListAsync();
+    }
+
+            if (column == "name")
+            {
+                storeTopTenApps = await _context.StoreApps.OrderByDescending(x => x.Name).ToListAsync();
+}
+
+            if (column == "id")
+{
+            storeTopTenApps = await _context.StoreApps.OrderByDescending(x => x.Id).ToListAsync();
+  }
+
+             if (column == "price")
+     {
+             storeTopTenApps = await _context.StoreApps.OrderByDescending(x => x.Price).ToListAsync();
+         }
+
+             if (column == "people")
+       {
+              storeTopTenApps = await _context.StoreApps.OrderByDescending(x => x.People).ToListAsync();
+      }
+             if (column == "category")
+    {
+               storeTopTenApps = await _context.StoreApps.OrderByDescending(x => x.Category).ToListAsync();
+    }
+
+
+             if (storeTopTenApps == null)
+      {
+              return NotFound();
+    }
+
+           return storeTopTenApps;
+
+           
+        }
+
+
+
+
     }
 
 }
