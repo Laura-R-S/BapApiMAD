@@ -28,6 +28,9 @@ namespace BapApi.Models
     /// </summary>
     public class StoreApp
     {
+        // These are validation attributes let you specify validation rules for model properties. 
+        // [Required]: Validates that the field is not null.
+        // Validation attributes let you specify the error message to be displayed for invalid input.
        [Column("id")]
        [Display(Name = "ID")]
        [Key]
@@ -35,14 +38,14 @@ namespace BapApi.Models
        [Required(ErrorMessage = "ID is required")] 
        public int Id { get; set; }
 
-
+        // [StringLength]: Validates that a string property value doesn't exceed a specified length limit.
        [Column("name")]
        [Display(Name = "Name")]
        [StringLength(100, MinimumLength = 3)]
        [Required(ErrorMessage = "Name must be between 3 and 100 characters")]
        public string Name { get; set; }
 
-
+        // [RegularExpression]: Validates that the property value matches a specified regular expression.
         [Column("rating")]
         [Display(Name = "Rating")]
         [StringLength(5)]
@@ -68,7 +71,7 @@ namespace BapApi.Models
         [Required(ErrorMessage = "Date is required")]
         public string Date { get; set; }
 
-
+        // [RegularExpression]: Validates that the property value matches a specified regular expression.
         [Column("price")]
         [Display(Name = "Price")]
         [RegularExpression("^[0-9]*$")]
